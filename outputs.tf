@@ -1,3 +1,7 @@
+output "api_management_standalone_gateways_id" {
+  description = "Map of id values across all api_management_standalone_gateways, keyed the same as var.api_management_standalone_gateways"
+  value       = { for k, v in azurerm_api_management_standalone_gateway.api_management_standalone_gateways : k => v.id }
+}
 output "api_management_standalone_gateways_backend_subnet_id" {
   description = "Map of backend_subnet_id values across all api_management_standalone_gateways, keyed the same as var.api_management_standalone_gateways"
   value       = { for k, v in azurerm_api_management_standalone_gateway.api_management_standalone_gateways : k => v.backend_subnet_id }
