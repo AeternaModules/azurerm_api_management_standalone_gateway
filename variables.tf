@@ -22,7 +22,7 @@ EOT
     tags                 = optional(map(string))
     virtual_network_type = optional(string)
     sku = object({
-      capacity = optional(number) # Default: 1
+      capacity = optional(number)
       name     = string
     })
   }))
