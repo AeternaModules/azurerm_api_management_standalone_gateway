@@ -20,7 +20,7 @@ output "api_management_standalone_gateways_resource_group_name" {
 }
 output "api_management_standalone_gateways_sku" {
   description = "Map of sku values across all api_management_standalone_gateways, keyed the same as var.api_management_standalone_gateways"
-  value       = { for k, v in azurerm_api_management_standalone_gateway.api_management_standalone_gateways : k => v.sku if v.sku != null && length(v.sku) > 0 }
+  value       = { for k, v in azurerm_api_management_standalone_gateway.api_management_standalone_gateways : k => one(v.sku) if v.sku != null && length(v.sku) > 0 }
 }
 output "api_management_standalone_gateways_tags" {
   description = "Map of tags values across all api_management_standalone_gateways, keyed the same as var.api_management_standalone_gateways"
